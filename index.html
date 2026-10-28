@@ -85,74 +85,8 @@
 
     </header>
 
-    <!-- 精選工具卡片網格（精簡 2+1 卡片設計） -->
-    <section class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
-      
-      <!-- 卡片 1：iPad 程式碼預覽神器 -->
-      <a href="https://andytsai600-rgb.github.io/ipad-preview/" 
-         class="card-hover group bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between relative overflow-hidden">
-        
-        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl group-hover:bg-blue-500/10 transition"></div>
-
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-2xl shadow-sm">
-              📱
-            </div>
-            <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-blue-100/80 text-blue-700 border border-blue-200">
-              課堂學生專用
-            </span>
-          </div>
-
-          <h2 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-blue-600 transition flex items-center gap-1.5">
-            iPad 程式碼極速預覽神器
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </h2>
-
-          <p class="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            在 Google Canvas 寫完程式，一鍵貼上即玩！免手指拉放大鏡反白，解決學生 iPad 複製卡死的課堂救星。
-          </p>
-        </div>
-
-        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-blue-600">
-          <span>貼上即玩 • 音效全螢幕支援</span>
-          <span class="flex items-center gap-1">開啟工具 ➔</span>
-        </div>
-      </a>
-
-      <!-- 卡片 2：Google Colab 算力百寶箱 -->
-      <a href="https://andytsai600-rgb.github.io/colab-portal/" 
-         class="card-hover group bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between relative overflow-hidden">
-        
-        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition"></div>
-
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-2xl shadow-sm">
-              🚀
-            </div>
-            <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-100/80 text-amber-800 border border-amber-200">
-              教師算力外掛
-            </span>
-          </div>
-
-          <h2 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-amber-600 transition flex items-center gap-1.5">
-            Google Colab 算力百寶箱
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-amber-600 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </h2>
-
-          <p class="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            告別 Token 焦慮！借 Google 雲端免費 GPU 算力，1 小時研習錄音 3 分鐘轉字幕，輕鬆做 3Blue1Brown 級數學動畫。
-          </p>
-        </div>
-
-        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-amber-700">
-          <span>0 Token 成本 • 免費雲端 GPU</span>
-          <span class="flex items-center gap-1">探索指南 ➔</span>
-        </div>
-      </a>
-
-    </section>
+    <!-- 成果卡片網格：內容由 works.js 提供，由下方腳本產生 -->
+    <section id="works" class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl"></section>
 
     <!-- 底部占位卡片：持續進化中 -->
     <div class="mt-6 w-full max-w-3xl">
@@ -170,6 +104,106 @@
       <p class="text-[11px] text-slate-400 font-mono">堅持進化 • 靜待開花 © 2026</p>
     </div>
   </footer>
+
+  <!-- 成果清單（只放資料）：新增成果請改 works.js，不要改這份檔案 -->
+  <script src="works.js"></script>
+  <!-- 版面產生器：負責把清單排成卡片，平常不需要修改 -->
+  <script>
+    // 配色表：每種配色都寫完整的 class 名稱，Tailwind 才認得
+    const THEMES = {
+      blue: {
+        glow: "bg-blue-500/5 group-hover:bg-blue-500/10",
+        iconBox: "bg-blue-50 border border-blue-100",
+        badge: "bg-blue-100/80 text-blue-700 border border-blue-200",
+        hoverText: "group-hover:text-blue-600",
+        arrowHover: "group-hover:text-blue-600",
+        footText: "text-blue-600"
+      },
+      amber: {
+        glow: "bg-amber-500/5 group-hover:bg-amber-500/10",
+        iconBox: "bg-amber-50 border border-amber-100",
+        badge: "bg-amber-100/80 text-amber-800 border border-amber-200",
+        hoverText: "group-hover:text-amber-600",
+        arrowHover: "group-hover:text-amber-600",
+        footText: "text-amber-700"
+      },
+      emerald: {
+        glow: "bg-emerald-500/5 group-hover:bg-emerald-500/10",
+        iconBox: "bg-emerald-50 border border-emerald-100",
+        badge: "bg-emerald-100/80 text-emerald-800 border border-emerald-200",
+        hoverText: "group-hover:text-emerald-600",
+        arrowHover: "group-hover:text-emerald-600",
+        footText: "text-emerald-700"
+      },
+      violet: {
+        glow: "bg-violet-500/5 group-hover:bg-violet-500/10",
+        iconBox: "bg-violet-50 border border-violet-100",
+        badge: "bg-violet-100/80 text-violet-700 border border-violet-200",
+        hoverText: "group-hover:text-violet-600",
+        arrowHover: "group-hover:text-violet-600",
+        footText: "text-violet-700"
+      }
+    };
+
+    function esc(value) {
+      return String(value == null ? "" : value).replace(/[&<>"']/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+      });
+    }
+
+    function cardHtml(w) {
+      const t = THEMES[w.theme] || THEMES.blue;
+      return `
+      <a href="${esc(w.url)}"
+         class="card-hover group bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between relative overflow-hidden">
+
+        <div class="absolute top-0 right-0 w-32 h-32 ${t.glow} rounded-full blur-2xl transition"></div>
+
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-2xl ${t.iconBox} flex items-center justify-center text-2xl shadow-sm">
+              ${esc(w.icon)}
+            </div>
+            <span class="text-[11px] font-bold px-2.5 py-1 rounded-full ${t.badge}">
+              ${esc(w.badge)}
+            </span>
+          </div>
+
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 ${t.hoverText} transition flex items-center gap-1.5">
+            ${esc(w.title)}
+            <svg class="w-4 h-4 text-slate-400 ${t.arrowHover} group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </h2>
+
+          <p class="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            ${esc(w.desc)}
+          </p>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold ${t.footText}">
+          <span>${esc(w.tags)}</span>
+          <span class="flex items-center gap-1">${esc(w.cta)} ➔</span>
+        </div>
+      </a>`;
+    }
+
+    function renderWorks() {
+      const box = document.getElementById("works");
+      const list = Array.isArray(window.WORKS) ? window.WORKS : null;
+      if (!list) {
+        box.innerHTML = '<p class="md:col-span-2 text-center text-sm text-slate-500">成果清單載入失敗，請稍後再試。</p>';
+        return;
+      }
+      box.innerHTML = list.map(function (w, i) {
+        if (!w || !/^https:\/\//i.test(String(w.url || ""))) {
+          console.warn("works.js 第 " + (i + 1) + " 筆沒有有效的 https:// 網址，已略過");
+          return "";
+        }
+        return cardHtml(w);
+      }).join("");
+    }
+
+    renderWorks();
+  </script>
 
 </body>
 </html>
